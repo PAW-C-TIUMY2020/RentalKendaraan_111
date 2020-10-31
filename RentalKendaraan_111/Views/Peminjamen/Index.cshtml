@@ -3,57 +3,77 @@
 @{
     ViewData["Title"] = "Index";
 }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-expand-sm bg-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+    </ul>
+</nav>
 
-<h2>Index</h2>
+<h2>Tambah Data Peminjaman</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Tambah Data Baru</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TglPeminjaman)
+                Tanggal  Peminjaman
+            <th>
+                Biaya
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Biaya)
+                Customer
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdCostumerNavigation)
+                Jaminan
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdJaminanNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdKendaraanNavigation)
+                Kendaraan
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TglPeminjaman)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Biaya)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCostumerNavigation.IdCostumer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdJaminanNavigation.IdJaminan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdKendaraanNavigation.IdKendaraan)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPeminjaman">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPeminjaman">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPeminjaman">Delete</a>
-            </td>
-        </tr>
-}
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPeminjaman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Biaya)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCostumerNavigation.IdCostumer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdJaminanNavigation.IdJaminan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdKendaraanNavigation.IdKendaraan)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdPeminjaman">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdPeminjaman">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdPeminjaman">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
